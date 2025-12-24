@@ -1,7 +1,5 @@
 package com.br.bry4n;
 
-import jdk.internal.joptsimple.internal.Strings;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,28 +12,33 @@ public class Main {
         String username = System.getProperty("user.name");
         System.out.println(username);
 
-        System.out.print(" -- Seja bem vindo " + username + " --\n");
-        System.out.print("| ----------------------------- |\n");
-        System.out.print("| Opção 1 - Converter para .txt |\n");
-        System.out.print("| Opção 2 - Converter para .csv |\n");
-        System.out.print("| Opção 3 - Sair                |\n");
-        System.out.print("| ----------------------------- |\n");
+        int opcao;
+        do {
+            System.out.print(" -- Seja bem vindo " + username + " --\n");
+            System.out.print("| ----------------------------- |\n");
+            System.out.print("| Opção 1 - Converter para .txt |\n");
+            System.out.print("| Opção 2 - Converter para .csv |\n");
+            System.out.print("| Opção 3 - Sair                |\n");
+            System.out.print("| ----------------------------- |\n");
 
-        System.out.print("Digite uma opção: ");
-        int opcao = scanner.nextInt();
+            System.out.print("Digite uma opção: ");
+            opcao = scanner.nextInt();
 
-        switch (opcao){
-            case 1:
-                break;
-            case 2:
-                //limpar o buffer
-                scanner.nextLine();
-                List<String []> frasesOrganizadas = coletarFrasesParaCSV(scanner);
-                openCSV.escreverCSV(frasesOrganizadas,"deck-convertido");
-                break;
-            case 3:
-                break;
-        }
+            switch (opcao) {
+                case 1:
+                    break;
+                case 2:
+                    //limpar o buffer
+                    scanner.nextLine();
+                    List<String[]> frasesOrganizadas = coletarFrasesParaCSV(scanner);
+                    openCSV.escreverCSV(frasesOrganizadas, "deck-convertido");
+                    System.out.println("Arquivo criado, olhe sua desktop!");
+                    break;
+                case 3:
+                    break;
+            }
+        } while (opcao != 3);
+        scanner.close();
     }
 
     //declaração de método
