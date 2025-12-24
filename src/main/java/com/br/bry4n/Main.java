@@ -25,6 +25,11 @@ public class Main {
 
             switch (opcao) {
                 case 1:
+                    //limpar o buffer
+                    scanner.nextLine();
+                    List<String[]> frasesParaTXT = coletarFrasesParaCSV(scanner);
+                    openCSV.escreverTextoTXT(frasesParaTXT, "deck-convertido");
+                    System.out.println("Arquivo criado, olhe sua desktop!");
                     break;
                 case 2:
                     //limpar o buffer
@@ -41,6 +46,36 @@ public class Main {
     }
 
     //declaração de método
+
+    //método1
+    public static List<String> coletarTextoParaTXT(Scanner scanner){
+        List<String> linhas = new ArrayList<>();
+        String continuar;
+
+        do {
+            System.out.println("\u001B[34m"+ "BEM VINDO AO CONVERSOR .TXT" + "\u001B[0m");
+            System.out.println("\n=== Escreva seu texto ===");
+            System.out.print("Digite o texto: ");
+            String texto = scanner.nextLine().trim();
+
+            if (!texto.isEmpty()) {
+                linhas.add(texto);
+                System.out.println("Texto adicionado com sucesso!");
+            } else {
+                System.out.println("O texto não pode estar vazio!");
+            }
+
+            do {
+                System.out.print("\nDeseja adicionar mais texto? (s/n): ");
+                continuar = scanner.nextLine().trim().toLowerCase();
+            } while (!continuar.equals("s") && !continuar.equals("n"));
+
+        } while (continuar.equals("s"));
+
+        return linhas;
+    }
+
+    //método2
     public static List<String[]> coletarFrasesParaCSV(Scanner scanner){
         List<String[]> listaDeFrases = new ArrayList<>();
         String continuar;
