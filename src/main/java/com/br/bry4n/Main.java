@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) {
         //declarações
         Scanner scanner = new Scanner(System.in);
+        String ANSI_RED = "\u001B[31m";
+        String ANSI_RESET = "\u001B[0m";
 
         String username = System.getProperty("user.name");
         System.out.println(username);
@@ -19,5 +21,7 @@ public class Main {
 
         System.out.print("Digite uma opção: ");
         int opcao = scanner.nextInt();
+
+
     }
 }
