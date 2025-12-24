@@ -5,6 +5,7 @@ import com.opencsv.CSVWriterBuilder;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -18,14 +19,13 @@ public class OpenCSV {
         }
 
         File arquivoCSV = new File(pastaCacCli, nomeArquivo + ".csv");
-        Path caminhoCompleto = arquivoCSV.toPath();
 
-        // 2. Usar CSVWriter para escrever cada String[] da lista
-
-        try (CSVWriter writer = new CSVWriter(new FileWriter(path.toString()))) {
+        try (CSVWriter writer = new CSVWriter(new FileWriter(arquivoCSV))) {
             writer.writeAll(frases);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
-        return "Ok";
+        return "Arquivo salvo em: " + arquivoCSV.getAbsolutePath();
     }
 }
