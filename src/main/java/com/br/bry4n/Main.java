@@ -10,7 +10,6 @@ public class Main {
         OpenCSV openCSV = new OpenCSV();
         Scanner scanner = new Scanner(System.in);
         String username = System.getProperty("user.name");
-        System.out.println(username);
 
         int opcao;
         do {
@@ -32,7 +31,7 @@ public class Main {
                     scanner.nextLine();
                     List<String[]> frasesOrganizadas = coletarFrasesParaCSV(scanner);
                     openCSV.escreverCSV(frasesOrganizadas, "deck-convertido");
-                    System.out.println("Arquivo criado, olhe sua desktop!");
+                    System.out.println("Arquivo criado, olhe sua desktop!\n\n");
                     break;
                 case 3:
                     break;
@@ -43,12 +42,11 @@ public class Main {
 
     //declaração de método
     public static List<String[]> coletarFrasesParaCSV(Scanner scanner){
-        System.out.println("\u001B[31m"+ "CONVERSOR .CSV" + "\u001B[0m");
-
         List<String[]> listaDeFrases = new ArrayList<>();
         String continuar;
 
         do {
+            System.out.println("\u001B[31m"+ "BEM VINDO AO CONVERSOR .CSV" + "\u001B[0m");
             System.out.println("\n=== Nova Frase ===");
             System.out.print("Digite a FRENTE da frase: ");
             String frente = scanner.nextLine().trim();
