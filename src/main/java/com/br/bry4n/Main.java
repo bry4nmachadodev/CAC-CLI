@@ -13,10 +13,11 @@ public class Main {
         System.out.print(" -- Seja bem vindo " + username + " --\n");
         System.out.print("| ----------------------------- |\n");
         System.out.print("| Opção 1 - Converter para .txt |\n");
-        System.out.print("| Opção 2 - Converter para .csv | \n");
+        System.out.print("| Opção 2 - Converter para .csv |\n");
+        System.out.print("| Opção 3 - Sair                |\n");
         System.out.print("| ----------------------------- |\n");
-        System.out.print("Digite uma opção: ");
 
-        int escolha = 0;
+        System.out.print("Digite uma opção: ");
+        int opcao = scanner.nextInt();
     }
 }
