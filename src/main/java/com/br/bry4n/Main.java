@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //declarações
+        OpenCSV openCSV = new OpenCSV();
         Scanner scanner = new Scanner(System.in);
         String username = System.getProperty("user.name");
         System.out.println(username);
@@ -29,7 +30,8 @@ public class Main {
             case 2:
                 //limpar o buffer
                 scanner.nextLine();
-                coletarFrasesParaCSV(scanner);
+                List<String []> frasesOrganizadas = coletarFrasesParaCSV(scanner);
+                openCSV.escreverCSV(frasesOrganizadas,"deck-convertido");
                 break;
             case 3:
                 break;
