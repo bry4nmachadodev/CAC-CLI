@@ -1,12 +1,9 @@
 package com.br.bry4n;
 
 import com.opencsv.CSVWriter;
-import com.opencsv.CSVWriterBuilder;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.List;
 
 public class OpenCSV {
