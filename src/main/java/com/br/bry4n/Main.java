@@ -7,21 +7,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //declarações
+        Menu menu = new Menu();
         OpenCSV openCSV = new OpenCSV();
         Scanner scanner = new Scanner(System.in);
         String username = System.getProperty("user.name");
 
         int opcao;
         do {
-            System.out.print(" -- Seja bem vindo " + username + " --\n");
-            System.out.print("| ----------------------------- |\n");
-            System.out.print("| Opção 1 - Converter para .txt |\n");
-            System.out.print("| Opção 2 - Converter para .csv |\n");
-            System.out.print("| Opção 3 - Sair                |\n");
-            System.out.print("| ----------------------------- |\n");
-
-            System.out.print("Digite uma opção: ");
-            opcao = scanner.nextInt();
+            menu.exibirMenu(username);
+            opcao = menu.capturarOpcao(scanner);
 
             switch (opcao) {
                 case 1:
