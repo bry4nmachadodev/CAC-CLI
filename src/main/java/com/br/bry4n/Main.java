@@ -25,10 +25,9 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    //limpar o buffer
                     scanner.nextLine();
-                    List<String[]> frasesParaTXT = coletarFrasesParaCSV(scanner);
-                    openCSV.escreverTextoTXT(frasesParaTXT, "deck-convertido");
+                    List<String> textos = coletarTextoParaTXT(scanner);
+                    openCSV.escreverTXT(textos, "texto-convertido");
                     System.out.println("Arquivo criado, olhe sua desktop!");
                     break;
                 case 2:
@@ -45,7 +44,7 @@ public class Main {
         scanner.close();
     }
 
-    //declaração de método
+    //declaração de métodos
 
     //método1
     public static List<String> coletarTextoParaTXT(Scanner scanner){
