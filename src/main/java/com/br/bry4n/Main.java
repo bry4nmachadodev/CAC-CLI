@@ -7,11 +7,14 @@ public class Main {
         //declarações
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("##--Seja bem vindo--##\n\n");
-        System.out.print("|-----------------------------|\n");
-        System.out.print("| Opção 1 - Converter para .txt|\n");
-        System.out.print("| Opção 2 - Converter para .csv|\n");
-        System.out.print("|-----------------------------|\n");
+        String username = System.getProperty("user.name");
+        System.out.println(username);
+
+        System.out.print(" -- Seja bem vindo " + username + " --\n");
+        System.out.print("| ----------------------------- |\n");
+        System.out.print("| Opção 1 - Converter para .txt |\n");
+        System.out.print("| Opção 2 - Converter para .csv | \n");
+        System.out.print("| ----------------------------- |\n");
         System.out.print("Digite uma opção: ");
 
         int escolha = 0;
