@@ -1,6 +1,5 @@
 package com.br.bry4n;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,6 +31,7 @@ public class Main {
                     System.out.println("Arquivo criado, olhe sua desktop!\n\n");
                     break;
                 case 3:
+                    System.out.println("Encerrando programa... Até logo!");
                     break;
             }
         } while (opcao != 3);
