@@ -28,7 +28,7 @@ public class OpenCSV {
         return "Arquivo salvo em: " + arquivoCSV.getAbsolutePath();
     }
 
-    public String escreverTextoTXT(List<String[]> frases, String nomeArquivo){
+    public String escreverTXT(List<String> linhas, String nomeArquivo) {
         String areaDeTrabalho = System.getProperty("user.home") + File.separator + "Desktop";
 
         File pastaCacCli = new File(areaDeTrabalho, "cac-cli");
@@ -37,13 +37,10 @@ public class OpenCSV {
         }
 
         File arquivoTXT = new File(pastaCacCli, nomeArquivo + ".txt");
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoTXT))) {
-            for (String[] frase : frases) {
-                writer.write("Frente: " + frase[0]);
-                writer.newLine();
-                writer.write("Verso: " + frase[1]);
-                writer.newLine();
-                writer.write("---");
+            for (String linha : linhas) {
+                writer.write(linha);
                 writer.newLine();
             }
         } catch (IOException e) {
