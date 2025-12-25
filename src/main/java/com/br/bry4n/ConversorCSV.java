@@ -110,7 +110,7 @@ public class ConversorCSV {
         return deckMontado;
     }
 
-    public static void criarCVSViaMenu(Scanner scanner){
+    public static void criarCSVViaMenu(Scanner scanner){
         scanner.nextLine();
         System.out.println("\n=== Conversor CSV ===");
         System.out.println("1 - Modo Guiado (pergunta frente e verso)");
