@@ -120,6 +120,10 @@ frente,verso
 "Maior país do mundo","Rússia"
 "Ano da Proclamação da República","1889"
 ```
+### IA gerando deck especialmente pra você
+1: Escolha opção 3
+2: Responda as perguntas solicitadas
+3: Arquivo salvo no seu Desktop/
 
 ## 🛠️ Tecnologias
 
