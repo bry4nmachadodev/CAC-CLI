@@ -26,7 +26,24 @@ public class Main {
                     break;
                 case 2:
                     scanner.nextLine();
-                    List<String[]> frasesOrganizadas = conversorCSV.coletarFrasesParaCSV(scanner);  // ← chama do conversorCSV
+                    System.out.println("\n=== Conversor CSV ===");
+                    System.out.println("1 - Modo Guiado (pergunta frente e verso)");
+                    System.out.println("2 - Modo Livre (colar tudo separado por ;)");
+                    System.out.print("Escolha o modo: ");
+                    int modoCSV = scanner.nextInt();
+                    scanner.nextLine(); // limpar buffer
+
+                    List<String[]> frasesOrganizadas;
+
+                    if (modoCSV == 1) {
+                        frasesOrganizadas = conversorCSV.coletarFrasesParaCSV(scanner);
+                    } else if (modoCSV == 2) {
+                        frasesOrganizadas = conversorCSV.coletarFrasesLivre(scanner);
+                    } else {
+                        System.out.println("Opção inválida!");
+                        break;
+                    }
+
                     conversorCSV.escreverCSV(frasesOrganizadas, "deck-convertido");
                     System.out.println("Arquivo criado, olhe sua desktop!\n\n");
                     break;
