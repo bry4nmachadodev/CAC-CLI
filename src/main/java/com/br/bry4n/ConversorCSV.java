@@ -110,4 +110,27 @@ public class ConversorCSV {
         return deckMontado;
     }
 
+    public static void criarCVSViaMenu(Scanner scanner){
+        scanner.nextLine();
+        System.out.println("\n=== Conversor CSV ===");
+        System.out.println("1 - Modo Guiado (pergunta frente e verso)");
+        System.out.println("2 - Modo Livre (colar tudo separado por ;)");
+        System.out.print("Escolha o modo: ");
+        int modoCSV = scanner.nextInt();
+        scanner.nextLine();
+
+        List<String[]> frasesOrganizadas;
+
+        if (modoCSV == 1) {
+            frasesOrganizadas = coletarFrasesParaCSV(scanner);
+        } else if (modoCSV == 2) {
+            frasesOrganizadas = new ConversorCSV().coletarFrasesLivre(scanner);
+        } else {
+            System.out.println("Opção inválida!");
+            return;
+        }
+
+        escreverCSV(frasesOrganizadas, "deck-convertido");
+        System.out.println("Arquivo criado, olhe sua Desktop!\n\n");
+    }
 }
