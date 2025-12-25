@@ -7,11 +7,12 @@ public class Main {
     public static void main(String[] args) {
         //declarações
         Menu menu = new Menu();
+        GroqRequestIdioma groqAPI = new GroqRequestIdioma();
         ConversorCSV conversorCSV = new ConversorCSV();
         ConversorTXT conversorTXT = new ConversorTXT();
         Scanner scanner = new Scanner(System.in);
-        String username = System.getProperty("user.name");
 
+        String username = System.getProperty("user.name");
         int opcao;
         do {
             menu.exibirMenu(username);
@@ -48,10 +49,23 @@ public class Main {
                     System.out.println("Arquivo criado, olhe sua desktop!\n\n");
                     break;
                 case 3:
-                    System.out.println("Encerrando programa... Até logo!");
+                    scanner.nextLine(); //limpar buffer
+                    System.out.println("\n=== Bem-Vindo a IA generativa===");
+                    System.out.print("Qual será o idioma do deck gerado? ");
+                    String idioma = scanner.nextLine();
+                    System.out.print("Qual seu nível no idioma? (A0 - C2) ");
+                    String nivel = scanner.nextLine();
+                    System.out.print("Quantas frases você quer? ");
+                    String numeroFrases = scanner.nextLine();
+                    List<String[]> deckMontado = groqAPI.requestAoGroq(idioma, nivel, numeroFrases);
+                    conversorCSV.escreverCSV(deckMontado, "deck-anki" + idioma);
+                    System.out.println("Arquivo criado, olhe sua desktop!\n\n");
+                    break;
+                case 4:
+                    System.out.println("\nEncerrando programa... Até logo!\n");
                     break;
             }
-        } while (opcao != 3);
+        } while (opcao != 4);
         scanner.close();
     }
 }
