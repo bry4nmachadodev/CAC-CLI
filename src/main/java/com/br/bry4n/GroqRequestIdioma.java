@@ -19,9 +19,6 @@ public class GroqRequestIdioma {
         for (String linha : resposta.split("\n")) {
             deck.add(linha.split(";")); // cada linha vira [frente, verso]
         }
-
         return deck;
     }
-
 }
-// Me de 2 frass pra adicionar no anki do nível A1 do idioma: russo . Me de somente [...]
