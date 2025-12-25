@@ -8,8 +8,6 @@ public class Main {
         //declarações
         Menu menu = new Menu();
         GroqRequestIdioma groqAPI = new GroqRequestIdioma();
-        ConversorCSV conversorCSV = new ConversorCSV();
-        ConversorTXT conversorTXT = new ConversorTXT();
         Scanner scanner = new Scanner(System.in);
 
         String username = System.getProperty("user.name");
