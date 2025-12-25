@@ -1,4 +1,4 @@
-package com.br.bry4n;
+package com.br.bry4n.conversor;
 
 import java.io.BufferedWriter;
 import java.io.File;

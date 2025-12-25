@@ -1,6 +1,9 @@
-package com.br.bry4n;
+package com.br.bry4n.main;
 
-import java.util.List;
+import com.br.bry4n.api.GroqRequestIdioma;
+import com.br.bry4n.conversor.ConversorCSV;
+import com.br.bry4n.conversor.ConversorTXT;
+
 import java.util.Scanner;
 
 public class Main {

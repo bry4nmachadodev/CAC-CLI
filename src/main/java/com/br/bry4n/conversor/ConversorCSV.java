@@ -1,5 +1,6 @@
-package com.br.bry4n;
+package com.br.bry4n.conversor;
 
+import com.br.bry4n.api.GroqRequestIdioma;
 import com.opencsv.CSVWriter;
 
 import java.io.File;

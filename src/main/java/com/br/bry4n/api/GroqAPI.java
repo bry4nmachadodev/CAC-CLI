@@ -1,4 +1,4 @@
-package com.br.bry4n;
+package com.br.bry4n.api;
 import okhttp3.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

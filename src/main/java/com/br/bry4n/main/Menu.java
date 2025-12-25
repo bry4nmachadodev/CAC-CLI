@@ -1,4 +1,4 @@
-package com.br.bry4n;
+package com.br.bry4n.main;
 
 import java.util.Scanner;
 

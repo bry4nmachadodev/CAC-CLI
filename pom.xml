@@ -52,7 +52,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.br.bry4n.Main</mainClass>
+                            <mainClass>com.br.bry4n.main.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
