@@ -15,7 +15,7 @@ public class ConversorCSV {
         String continuar;
 
         do {
-            System.out.println("\u001B[31m"+ "BEM VINDO AO CONVERSOR .CSV" + "\u001B[0m");
+            System.out.println("\n=== " + "BEM VINDO AO CONVERSOR .CSV - MODO GUIADO" + " ===");
             System.out.println("\n=== Nova Frase ===");
             System.out.print("Digite a FRENTE da frase: ");
             String frente = scanner.nextLine().trim();
@@ -62,10 +62,10 @@ public class ConversorCSV {
     public List<String[]> coletarFrasesLivre(Scanner scanner) {
         List<String[]> listaDeFrases = new ArrayList<>();
 
-        System.out.println("\u001B[31m" + "BEM VINDO AO CONVERSOR .CSV - MODO LIVRE" + "\u001B[0m");
+        System.out.println("\n=== " + "BEM VINDO AO CONVERSOR .CSV - MODO LIVRE" + " ===");
         System.out.println("\nCole suas frases separadas por ponto e vírgula (;)");
         System.out.println("Exemplo: Frente1;Verso1;Frente2;Verso2;Frente3;Verso3");
-        System.out.println("\nDigite o texto:");
+        System.out.print("\nDigite o texto:");
 
         String input = scanner.nextLine();
         String[] partes = input.split(";");
