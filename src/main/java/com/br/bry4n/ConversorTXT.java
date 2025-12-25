@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConversorTXT {
-    public static List<String> coletarTextoParaTXT(Scanner scanner){
+
+    public static List<String>  coletarTextoParaTXT(Scanner scanner) {
         List<String> linhas = new ArrayList<>();
         String continuar;
 
         do {
-            System.out.println("\u001B[34m"+ "BEM VINDO AO CONVERSOR .TXT" + "\u001B[0m");
+            System.out.println("\u001B[34m" + "BEM VINDO AO CONVERSOR .TXT" + "\u001B[0m");
             System.out.println("\n=== Escreva seu texto ===");
             System.out.print("Digite o texto: ");
             String texto = scanner.nextLine().trim();
@@ -36,7 +37,7 @@ public class ConversorTXT {
         return linhas;
     }
 
-    public String escreverTXT(List<String> linhas, String nomeArquivo) {
+    public static String escreverTXT(List<String> linhas, String nomeArquivo) {
         String areaDeTrabalho = System.getProperty("user.home") + File.separator + "Desktop";
 
         File pastaCacCli = new File(areaDeTrabalho, "cac-cli");
@@ -56,5 +57,11 @@ public class ConversorTXT {
         }
 
         return "Arquivo salvo em: " + arquivoTXT.getAbsolutePath();
+    }
+
+    public static void criarTXTViaMenu(Scanner scanner) {
+        List<String> textos = coletarTextoParaTXT(scanner);
+        escreverTXT(textos, "texto-convertido");
+        System.out.println("Arquivo criado, olhe sua desktop!");
     }
 }
