@@ -1,17 +1,42 @@
 # CAC-CLI 🚀
 
-Conversor de texto para arquivos `.txt` e `.csv` via linha de comando.
+Conversor de texto para arquivos `.txt` e `.csv` via linha de comando - **Especialmente desenvolvido para criar decks do Anki!** 🎴
 
 ## 📋 Sobre o Projeto
 
-CAC-CLI é uma aplicação Java para converter texto em arquivos estruturados. Permite criar arquivos de texto simples ou flashcards no formato CSV com frente e verso.
+CAC-CLI é uma aplicação Java para converter texto em arquivos estruturados. Permite criar arquivos de texto simples ou flashcards no formato CSV com frente e verso, **otimizado para importação no Anki**.
 
 ## ✨ Funcionalidades
 
 - ✍️ **Conversor TXT**: Crie arquivos de texto linha por linha
-- 🎴 **Conversor CSV**: Crie flashcards estruturados (frente/verso)
+- 🎴 **Conversor CSV para Anki**: Crie flashcards estruturados (frente/verso) prontos para importar
 - 💾 **Salvamento automático**: Arquivos salvos em `Desktop/cac-cli/`
 - 🖥️ **Multiplataforma**: Funciona em Windows, Linux e macOS
+
+## 🃏 Integração com Anki
+
+O conversor CSV foi desenvolvido especificamente para criar decks compatíveis com o **[Anki](https://apps.ankiweb.net/)**, o popular sistema de repetição espaçada.
+
+### Como importar no Anki
+
+1. Abra o Anki
+2. Clique em **"Arquivo"** → **"Importar"**
+3. Selecione o arquivo `deck-convertido.csv` da pasta `Desktop/cac-cli/`
+4. Configure:
+   - **Tipo**: Básico (frente e verso)
+   - **Campos separados por**: vírgula
+   - **Deck**: escolha ou crie um novo
+5. Clique em **"Importar"**
+6. Pronto! Seus flashcards estão no Anki! ✅
+
+### Formato compatível
+
+O CSV gerado segue o formato padrão do Anki:
+```csv
+frente,verso
+"O que é Java?","Linguagem de programação orientada a objetos"
+"O que é JVM?","Java Virtual Machine"
+```
 
 ## 🚀 Como Usar
 
@@ -19,6 +44,7 @@ CAC-CLI é uma aplicação Java para converter texto em arquivos estruturados. P
 
 - Java 8 ou superior instalado
 - Terminal/Prompt de Comando
+- (Opcional) [Anki](https://apps.ankiweb.net/) instalado para usar os flashcards
 
 ### Executando o .jar
 
@@ -54,7 +80,7 @@ C:\Users\[seu-usuario]\Desktop\cac-cli\
 
 **Linux/macOS:**
 ```
-/home/[seu-usuario]/Desktop/cac-cli/
+/home/[seu-usuario]\Desktop\cac-cli\
 ```
 
 A pasta `cac-cli` é criada automaticamente na primeira execução.
@@ -67,18 +93,20 @@ A pasta `cac-cli` é criada automaticamente na primeira execução.
 3. Confirme se deseja adicionar mais linhas
 4. Arquivo salvo como `texto-convertido.txt`
 
-### Convertendo para CSV
+### Convertendo para CSV (Anki)
 1. Escolha opção `2`
-2. Digite a **frente** do flashcard
-3. Digite o **verso** do flashcard
+2. Digite a **frente** do flashcard (ex: "O que é Python?")
+3. Digite o **verso** do flashcard (ex: "Linguagem de programação interpretada")
 4. Confirme se deseja adicionar mais frases
 5. Arquivo salvo como `deck-convertido.csv`
+6. **Importe no Anki** seguindo as instruções acima
 
 **Formato do CSV:**
 ```csv
 frente,verso
-"Olá","Hello"
-"Obrigado","Thank you"
+"Capital do Brasil","Brasília"
+"Maior país do mundo","Rússia"
+"Ano da Proclamação da República","1889"
 ```
 
 ## 🛠️ Tecnologias
@@ -93,8 +121,9 @@ Contribuições são bem-vindas! Se você tem ideias de melhorias ou encontrou a
 
 1. Abra uma [Issue](../../issues/new) descrevendo:
    - 🐛 Bugs encontrados
-   - 💡 Sugestões de features
+   - 💡 Sugestões de features (ex: novos formatos de exportação)
    - 📖 Melhorias na documentação
+   - 🎴 Sugestões para melhor integração com Anki
 
 2. Ou faça um Pull Request:
    - Fork o projeto
@@ -116,3 +145,5 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ⭐ Se este projeto foi útil para você, considere dar uma estrela!
 
 💬 Dúvidas? Abra uma [Issue](../../issues)!
+
+🎴 Bons estudos no Anki!
