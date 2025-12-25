@@ -49,17 +49,8 @@ public class Main {
                     System.out.println("Arquivo criado, olhe sua desktop!\n\n");
                     break;
                 case 3:
-                    scanner.nextLine(); //limpar buffer
-                    System.out.println("\n=== Bem-Vindo a IA generativa===");
-                    System.out.print("Qual será o idioma do deck gerado? ");
-                    String idioma = scanner.nextLine();
-                    System.out.print("Qual seu nível no idioma? (A0 - C2) ");
-                    String nivel = scanner.nextLine();
-                    System.out.print("Quantas frases você quer? ");
-                    String numeroFrases = scanner.nextLine();
-                    List<String[]> deckMontado = groqAPI.requestAoGroq(idioma, nivel, numeroFrases);
-                    conversorCSV.escreverCSV(deckMontado, "deck-anki" + idioma);
-                    System.out.println("Arquivo criado, olhe sua desktop!\n\n");
+                    scanner.nextLine(); // limpar buffer
+                    ConversorCSV.gerarDeckComIA(scanner, groqAPI);
                     break;
                 case 4:
                     System.out.println("\nEncerrando programa... Até logo!\n");

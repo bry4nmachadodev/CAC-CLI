@@ -40,7 +40,7 @@ public class ConversorCSV {
         return listaDeFrases;
     }
 
-    public String escreverCSV(List<String[]> frases, String nomeArquivo) {
+    public static String escreverCSV(List<String[]> frases, String nomeArquivo) {
         String areaDeTrabalho = System.getProperty("user.home") + File.separator + "Desktop";
 
         File pastaCacCli = new File(areaDeTrabalho, "cac-cli");
@@ -86,6 +86,28 @@ public class ConversorCSV {
         System.out.println("✓ " + listaDeFrases.size() + " frases adicionadas com sucesso!");
 
         return listaDeFrases;
+    }
+
+    public static List<String[]> gerarDeckComIA(Scanner scanner, GroqRequestIdioma groqAPI) {
+        System.out.println("\n=== Bem-Vindo à IA generativa ===");
+
+        System.out.print("Qual será o idioma do deck gerado? ");
+        String idioma = scanner.nextLine().trim();
+
+        System.out.print("Qual seu nível no idioma? (A0 - C2) ");
+        String nivel = scanner.nextLine().trim();
+
+        System.out.print("Quantas frases você quer? ");
+        String numeroFrases = scanner.nextLine().trim();
+
+        // Chama a API para gerar o deck
+        List<String[]> deckMontado = groqAPI.requestAoGroq(idioma, nivel, numeroFrases);
+
+        // Salva o CSV
+        escreverCSV(deckMontado, "deck-anki_" + idioma);
+        System.out.println("Arquivo criado, olhe sua Desktop!");
+
+        return deckMontado;
     }
 
 }
