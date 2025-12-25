@@ -9,7 +9,8 @@ public class Menu {
         System.out.print("| ----------------------------- |\n");
         System.out.print("| Opção 1 - Converter para .txt |\n");
         System.out.print("| Opção 2 - Converter para .csv |\n");
-        System.out.print("| Opção 3 - Sair                |\n");
+        System.out.print("| Opção 3 - IA - gerar deck     |\n");
+        System.out.print("| Opção 4 - Sair                |\n");
         System.out.print("| ----------------------------- |\n");
     }
 
