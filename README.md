@@ -12,10 +12,20 @@ CAC-CLI é uma aplicação Java para converter texto em arquivos estruturados. P
 - 🎴 **Conversor CSV para Anki**: Crie flashcards estruturados (frente/verso) prontos para importar
 - 💾 **Salvamento automático**: Arquivos salvos em `Desktop/cac-cli/`
 - 🖥️ **Multiplataforma**: Funciona em Windows, Linux e macOS
+- 🤖 **IA generativa (opcional):** Gere frases automaticamente usando a API Groq.  
 
-## 🃏 Integração com Anki
+## ⚙️ Configuração da API
 
-O conversor CSV foi desenvolvido especificamente para criar decks compatíveis com o **[Anki](https://apps.ankiweb.net/)**, o popular sistema de repetição espaçada.
+Para usar a funcionalidade de geração de frases via IA, é necessário configurar sua API Key nas variáveis de ambiente:
+
+**No Linux/macOS:**
+```bash
+export GROQ_API_KEY="sua_api_key_aqui"
+```
+**No Windows (cmd):**
+```bash
+setx GROQ_API_KEY "sua_api_key_aqui"
+```
 
 ### Como importar no Anki
 
@@ -61,12 +71,14 @@ java -jar cac-cli.jar
 
 ### Menu Principal
 ```
--- Seja bem vindo [seu-usuario] --
+-- Seja bem-vindo [seu-usuario] --
 | ----------------------------- |
-| Opção 1 - Converter para .txt |
-| Opção 2 - Converter para .csv |
-| Opção 3 - Sair                |
+| 1 - Converter para .txt        |
+| 2 - Converter para .csv        |
+| 3 - Gerar deck via IA          |
+| 4 - Sair                       |
 | ----------------------------- |
+
 ```
 
 ## 📂 Onde os arquivos são salvos?
