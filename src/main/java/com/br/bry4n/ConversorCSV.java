@@ -59,4 +59,33 @@ public class ConversorCSV {
         return "Arquivo salvo em: " + arquivoCSV.getAbsolutePath();
     }
 
+    public List<String[]> coletarFrasesLivre(Scanner scanner) {
+        List<String[]> listaDeFrases = new ArrayList<>();
+
+        System.out.println("\u001B[31m" + "BEM VINDO AO CONVERSOR .CSV - MODO LIVRE" + "\u001B[0m");
+        System.out.println("\nCole suas frases separadas por ponto e vírgula (;)");
+        System.out.println("Exemplo: Frente1;Verso1;Frente2;Verso2;Frente3;Verso3");
+        System.out.println("\nDigite o texto:");
+
+        String input = scanner.nextLine();
+        String[] partes = input.split(";");
+
+        if (partes.length % 2 != 0) {
+            System.out.println("⚠ Atenção: Número ímpar de elementos! Última frase sem verso será ignorada.");
+        }
+
+        for (int i = 0; i < partes.length - 1; i += 2) {
+            String frente = partes[i].trim();
+            String verso = partes[i + 1].trim();
+
+            if (!frente.isEmpty() && !verso.isEmpty()) {
+                listaDeFrases.add(new String[]{frente, verso});
+            }
+        }
+
+        System.out.println("✓ " + listaDeFrases.size() + " frases adicionadas com sucesso!");
+
+        return listaDeFrases;
+    }
+
 }
