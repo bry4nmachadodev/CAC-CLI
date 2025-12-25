@@ -21,9 +21,7 @@ public class Main {
             switch (opcao) {
                 case 1:
                     scanner.nextLine(); // limpar buffer
-                    List<String> textos = conversorTXT.coletarTextoParaTXT(scanner);  // ← chama do conversorTXT
-                    conversorTXT.escreverTXT(textos, "texto-convertido");  // ← também aqui
-                    System.out.println("Arquivo criado, olhe sua desktop!");
+                    ConversorTXT.criarTXTViaMenu(scanner);
                     break;
                 case 2:
                     scanner.nextLine();
