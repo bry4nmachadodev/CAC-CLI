@@ -1,5 +1,6 @@
 package com.br.bry4n.conversor;
 
+import com.br.bry4n.api.GroqConversaoHtml;
 import com.br.bry4n.api.GroqRequestIdioma;
 import com.opencsv.CSVWriter;
 
@@ -9,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
 public class ConversorCSV {
     public static List<String[]> coletarFrasesParaCSV(Scanner scanner){
@@ -53,6 +56,31 @@ public class ConversorCSV {
 
         try (CSVWriter writer = new CSVWriter(new FileWriter(arquivoCSV))) {
             writer.writeAll(frases);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return "Arquivo salvo em: " + arquivoCSV.getAbsolutePath();
+    }
+
+    public static String escreverCsvColorido(List<String[]> frases, String nomeArquivo) {
+        String areaDeTrabalho = System.getProperty("user.home") + File.separator + "Desktop";
+
+        File pastaCacCli = new File(areaDeTrabalho, "cac-cli");
+        if (!pastaCacCli.exists()) {
+            pastaCacCli.mkdir();
+        }
+
+        File arquivoCSV = new File(pastaCacCli, nomeArquivo + ".csv");
+
+        List<String> linhas = new ArrayList<>();
+
+        for (String[] frase : frases) {
+            linhas.add(frase[0] + ";" + frase[1]);
+        }
+
+        try {
+            Files.write(arquivoCSV.toPath(), linhas, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -133,5 +161,16 @@ public class ConversorCSV {
 
         escreverCSV(frasesOrganizadas, "deck-convertido");
         System.out.println("Arquivo criado, olhe sua Desktop!\n\n");
+    }
+
+    //pega as frases do menu e salva em List<String []> -> salva elas organizadas me frente;verso
+    public static void criarCSVViaMenuComHtml(Scanner scanner, GroqConversaoHtml groqAPI) {
+        List<String[]> frasesOrganizadas;
+        frasesOrganizadas = coletarFrasesParaCSV(scanner);
+
+        List<String []> deckColorido = groqAPI.requestAoGroq(frasesOrganizadas);
+
+        escreverCsvColorido(deckColorido, "deck-colorido");
+        System.out.println("Arquivo criado, olhe sua Desktop!\n");
     }
 }
