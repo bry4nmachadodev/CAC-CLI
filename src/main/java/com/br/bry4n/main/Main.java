@@ -1,5 +1,6 @@
 package com.br.bry4n.main;
 
+import com.br.bry4n.api.GroqConversaoHtml;
 import com.br.bry4n.api.GroqRequestIdioma;
 import com.br.bry4n.conversor.ConversorCSV;
 import com.br.bry4n.conversor.ConversorTXT;
@@ -11,6 +12,7 @@ public class Main {
         //declarações
         Menu menu = new Menu();
         GroqRequestIdioma groqAPI = new GroqRequestIdioma();
+        GroqConversaoHtml groqConversaoHtml = new GroqConversaoHtml();
         Scanner scanner = new Scanner(System.in);
 
         String username = System.getProperty("user.name");
@@ -33,6 +35,10 @@ public class Main {
                     ConversorCSV.gerarDeckComIA(scanner, groqAPI);
                     break;
                 case 4:
+                    scanner.nextLine(); //limpar buffer
+                    ConversorCSV.criarCSVViaMenuComHtml(scanner, groqConversaoHtml);
+                    break;
+                case 5:
                     System.out.println("\nEncerrando programa... Até logo!\n");
                     break;
             }
