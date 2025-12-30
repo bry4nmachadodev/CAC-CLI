@@ -19,7 +19,6 @@ public class ConversorCSV {
         String continuar;
 
         do {
-            System.out.println("\n=== " + "BEM VINDO AO CONVERSOR .CSV - MODO GUIADO" + " ===");
             System.out.println("\n=== Nova Frase ===");
             System.out.print("Digite a FRENTE da frase: ");
             String frente = scanner.nextLine().trim();
@@ -34,10 +33,11 @@ public class ConversorCSV {
                 System.out.println("Frente e verso não podem estar vazios!");
             }
 
-            do {
+            continuar = "";
+            while (!continuar.equals("s") && !continuar.equals("n")) {
                 System.out.print("\nDeseja adicionar outra frase? (s/n): ");
                 continuar = scanner.nextLine().trim().toLowerCase();
-            } while (!continuar.equals("s") && !continuar.equals("n"));
+            }
 
         } while (continuar.equals("s"));
 
