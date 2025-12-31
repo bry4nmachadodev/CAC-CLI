@@ -42,7 +42,7 @@ public class Main {
                     System.out.println("\nEncerrando programa... Até logo!\n");
                     break;
             }
-        } while (opcao != 4);
+        } while (opcao != 5);
         scanner.close();
     }
 }
